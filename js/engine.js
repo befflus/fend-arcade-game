@@ -47,6 +47,7 @@ var Engine = (function(global) {
         update(dt);
         render();
 
+
         /* Set our lastTime variable which is used to determine the time delta
          * for the next time this function is called.
          */
@@ -93,7 +94,8 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
-        player.update();
+        player.update(dt);
+        pickupItem1.gotKey();
     }
 
     /* This function initially draws the "game level", it will then call
@@ -149,11 +151,13 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
+        pickupItem1.render();
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
 
         player.render();
+
     }
 
     /* This function does nothing but it could have been a good place to
@@ -173,7 +177,8 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/key.png'
     ]);
     Resources.onReady(init);
 
