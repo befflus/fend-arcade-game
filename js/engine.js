@@ -66,6 +66,7 @@ var Engine = (function(global) {
     function init() {
         reset();
         lastTime = Date.now();
+        
         main();
     }
 
@@ -94,7 +95,8 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
-        player.update(dt);
+        player.update(dt);      
+
         pickupItem1.gotKey();
     }
 
@@ -165,8 +167,8 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
-    }
+        //nooo
+        }
 
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when

@@ -27,7 +27,7 @@ class Enemy {
         //when enemies get across, put the bug back to start.
             if (this.x > 500) {
             this.x = 1;
-            this.speed = Math.floor(((Math.random()*100) + 50));//+ Math.floor((Math.random()*100) + 100) / 2 )
+            this.speed = Math.floor(((Math.random()*100) + 50)); //based on https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
         }
 
         //collision detection
@@ -98,13 +98,13 @@ class Player {
 }
 
 class PickupItem {
-    constructor () {
+    constructor (x, y) {
         
         this.sprite = 'images/key.png';
-        this.x = 200; //Idea: add random spawn here?
-        this.y = 200; //Idea: add randdom spawn here?
-        this.width = 50;
-        this.height = 50;
+        this.x = Math.random() * (400 - 10) + 10; 
+        this.y = Math.random() * (400 - 10) + 10; 
+        this.width = 5;
+        this.height = 5;
         this.keyCounter = 0;
 
     }
@@ -122,10 +122,20 @@ class PickupItem {
             this.height + this.y > player.y)) {      
 
                 this.keyCounter++; // add key to collected keys
+                this.resetPlayer();
+                this.nextKey();
                 console.log(this.keyCounter);
 
+                }        
         }
-   }
+    nextKey () {
+        this.x = Math.random() * (400 - 10) + 10;
+        this.y = Math.random() * (400 - 10) + 10;
+        }
+    resetPlayer () {
+        player.x = 200;
+        player.y = 380;
+    }
 }
 // Now instantiate your objects.
 const enemy1 = new Enemy(100,300);
@@ -139,7 +149,7 @@ const allEnemies = [enemy1, enemy2, enemy3, enemy4];
 // Place the player object in a variable called player
 const player = new Player();
 
-const pickupItem1 = new PickupItem();
+const pickupItem1 = new PickupItem(200, 200);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
