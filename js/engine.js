@@ -81,7 +81,6 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -97,7 +96,10 @@ var Engine = (function(global) {
         });
         player.update(dt);      
 
-        pickupItem1.gotKey();
+        if (pickupItem1.keyCounter <= 10) { 
+            pickupItem1.gotKey();
+        }
+        myLady.update();
     }
 
     /* This function initially draws the "game level", it will then call
@@ -139,8 +141,9 @@ var Engine = (function(global) {
                  * we're using them over and over.
                  */
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
+
             }
-        }
+        } 
 
         renderEntities();
     }
@@ -153,12 +156,19 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
-        pickupItem1.render();
+         if (pickupItem1.keyCounter === 10) {
+            myLady.render();
+
+         }
+        else {
+            pickupItem1.render()
+        };
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
 
         player.render();
+        myLady.gotCaught();
 
     }
 
@@ -180,6 +190,8 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-boy.png',
+        'images/char-princess-girl.png',
+        'images/Good_Treasure_Chest_04.png',
         'images/key.png'
     ]);
     Resources.onReady(init);

@@ -1,3 +1,47 @@
 body {
     text-align: center;
+    background-color: #303030FF;
+    font-family: 'Press Start 2P', cursive;
+    line-height: 1.6;
+}
+
+h1 {
+  font-size: 4em;
+  color: #DAFF7FFF;
+}
+
+strong {
+  color: red;
+}
+
+button {
+  padding: 8px;
+  border-radius: 5px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#showModal {
+  z-index: 1;
+  position: absolute;
+  background-color: #E3ECEDDC;
+  width: 600px;
+  height: 500px;
+  margin-top: 150px;
+  border-radius: 5px;
+
+}
+
+#winModal {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  background-color: #E3ECEDDC;
+  width: 600px;
+  height: 500px;
+  border-radius: 5px;
+  margin-top: 150px;
 }

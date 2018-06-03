@@ -4,12 +4,36 @@
     <meta charset="UTF-8">
     <title>Effective JavaScript: Frogger</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
-<body>
+<body class="container">
 	<h1>Arcade game</h1>
-	<h2></h2>
+	<div id="showModal" class="container">
+		<h2>Game Rules</h2>
+		<p>Help!!! The princess has been captured by the ugly beetles.<br>
+			She is locked up in the chest <br>
+			Collect 10 keys to unlock the chest. Then escape together and jump into the river 
+		</p>
+		<img src="images/char-princess-girl.png">
+		<button id="play" type="button">Start Game</button>
+		</div>
+	
+	<div id="winModal" class="container">
+		<h2>You have made it.</h2> 
+		<p>The princess is safe and now she wants to marry you <br>
+			Good luck with that</p>
+			<img src="images/Heart.png">
+			<img src="images/char-princess-girl.png">
+			<img src="images/char-boy.png">
+			<img src="images/Heart.png">  
+			<div><button id="playAgain" type="button">Play Again</button></div>
+	</div>
+	<div>
+		<h2 class="keys-collected"><span id="show-stats"> <strong>Keys collected: 0 </strong></span></h2>
+	</div>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
+
 </body>
 </html>
