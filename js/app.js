@@ -14,8 +14,8 @@ class Enemy {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     constructor (y,speed) {
-        this.width = 50;
-        this.height = 50;
+        this.width = 75;
+        this.height = 75;
         this.sprite = 'images/enemy-bug.png';
         this.x = 0;
         this.y = y;
@@ -33,7 +33,7 @@ class Enemy {
         //when enemies get across, put the bug back to start.
             if (this.x > 500) {
             this.x = 1;
-            this.speed = Math.floor((Math.random() * 100) + 60); //based on https://www.w3schools.com/Jsref/jsref_random.asp
+            this.speed = Math.floor((Math.random() * 60) + 60); //based on https://www.w3schools.com/Jsref/jsref_random.asp
         }
 
         //collision detection
@@ -45,7 +45,7 @@ class Enemy {
             
             //reset player when hit by bugs
             player.x = 200;
-            player.y = 380;
+            player.y = 400;
         }
     }
     // Draw the enemy on the screen, required method for game
@@ -62,9 +62,9 @@ class Player {
         
         this.sprite = 'images/char-boy.png';
         this.x = 200;
-        this.y = 380;
-        this.width = 50;
-        this.height = 50;
+        this.y = 400;
+        this.width = 75;
+        this.height = 75;
 
     }
 
@@ -90,8 +90,8 @@ class Player {
             this.x = 400;
         } else if (this.x < 0) {
             this.x = 0;
-        } else if (this.y > 380) {
-            this.y = 380;
+        } else if (this.y > 400) {
+            this.y = 400;
         } else if (this.y < -50) {
             this.y = -50;
         }
@@ -112,12 +112,12 @@ class PickupItem {
     constructor (x, y) {
         
         this.sprite = 'images/key.png';
-        this.x = Math.floor((Math.random() * 400) + 10);
+        this.x = Math.floor((Math.random() * 400) + 25);
         console.log(this.x); 
-        this.y = Math.floor((Math.random() * 400) + 10);
+        this.y = Math.floor((Math.random() * 400) + 25);
         console.log(this.y); 
-        this.width = 20;
-        this.height = 20;
+        this.width = 40;
+        this.height = 40;
         this.keyCounter = 0;
         this.showPrincess = false;
         this.chest = 'images/Good_Treasure_Chest_04.png';
@@ -190,11 +190,11 @@ class Princess {
         if (keyCode === 'left') {
             this.x = this.x - 50;
         } else if (keyCode === 'up') {
-            this.y = this.y - 40;
+            this.y = this.y - 50;
         } else if (keyCode === 'right') {
             this.x = this.x + 50;
         } else if (keyCode === 'down') {
-            this.y = this.y + 40;
+            this.y = this.y + 50;
         }
 
         //princess cannot move off screen
@@ -202,8 +202,8 @@ class Princess {
             this.x = 400;
         } else if (this.x < 0) {
             this.x = 0;
-        } else if (this.y > 380) {
-            this.y = 380;
+        } else if (this.y > 400) {
+            this.y = 400;
         } else if (this.y < -50) {
             this.y = -50;
         }
@@ -223,7 +223,7 @@ class Princess {
 const enemy1 = new Enemy(100,300);
 const enemy2 = new Enemy(140,200);
 const enemy3 = new Enemy(225,150);
-const enemy4 = new Enemy(325,50);
+const enemy4 = new Enemy(300,50);
 
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [enemy1, enemy2, enemy3, enemy4];
